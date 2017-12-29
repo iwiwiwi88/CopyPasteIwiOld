@@ -15,7 +15,7 @@ public class MainModel {
 		tabs.remove(id);
 	}
 	
-	public SectionTab getFrase(int id) {
+	public SectionTab getTab(int id) {
 		return tabs.get(id);
 	}
 

@@ -21,7 +21,6 @@ public class MainController {
 	class CopyListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
-			view.showErrorMsg(view.getTestValue());
 		}
 
 	}

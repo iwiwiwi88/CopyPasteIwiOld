@@ -1,37 +1,35 @@
 package view;
 
-import java.awt.HeadlessException;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import model.CopyFrase;
 
 public class MainView extends JFrame {
 
 	private static final long serialVersionUID = 2L;
-
-	JLabel test = new JLabel("Test Iwiwiwi");
-	CopyButton button = new CopyButton(new CopyFrase("Iwi", "iwiwiwi"));
-
+	Ribbon menu = new Ribbon();
+	NewButtonPanel newButtonPanel = new NewButtonPanel();
+	TabsPanel tabsPanel = new TabsPanel();
+	EditPanel editPanel = new EditPanel();
+	
 	public MainView() throws HeadlessException {
 		this.setTitle("CopyPasteIwi");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(600, 600);
-		JPanel tabPanel = new JPanel();
-		tabPanel.add(test);
-		tabPanel.add(button);
-		this.add(tabPanel);
+		addGrid();
 	}
 
-	// TODO clean it after testing it
-	public String getTestValue() {
-		return test.getText();
+	private void addGrid() {
+		Container container = this.getContentPane();
+		container.setLayout(new GridLayout(3,1));
+		container.add(newButtonPanel);
+		container.add(tabsPanel);
+		container.add(editPanel);
 	}
 	
 	public void addCopyListener(ActionListener listener) {
-		button.addCopyListener(listener);
+		tabsPanel.addCopyListener(listener);
 	}
 
 	public void showErrorMsg(String errorMsg) {
