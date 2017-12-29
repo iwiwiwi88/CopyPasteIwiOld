@@ -1,11 +1,14 @@
 package controller;
 
-import javax.swing.JFrame;
+import model.MainModel;
+import view.MainView;
 
 public class App {
 	public static void main(String[] args) {
-		JFrame f = new JFrame("Hello World");
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setVisible(true);
+		MainModel model = new MainModel();
+		MainView view = new MainView();
+		MainController controller = new MainController(view, model);
+
+		view.setVisible(true);
 	}
 }

@@ -13,6 +13,7 @@ public class CopyButton extends JButton {
 
 	public CopyButton(CopyFrase copyFrase) {
 		this.copyFrase = copyFrase;
+		this.setText(copyFrase.getName());
 	}
 	
 	public void copyToClipboard() {
