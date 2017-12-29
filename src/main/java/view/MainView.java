@@ -17,7 +17,13 @@ public class MainView extends JFrame {
 		this.setTitle("CopyPasteIwi");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(600, 600);
+		addMenuBar();
 		addGrid();
+	}
+
+	private void addMenuBar() {
+		menu.addTabsToTheTabMenu(tabsPanel);
+		this.setJMenuBar(menu);
 	}
 
 	private void addGrid() {
