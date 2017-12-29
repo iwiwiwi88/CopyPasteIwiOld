@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -35,6 +37,15 @@ public class Ribbon extends JMenuBar {
 		fileMenu.add(save);
 		fileMenu.add(saveAs);
 		fileMenu.addSeparator();
+		addExitMenuItem();
+	}
+
+	private void addExitMenuItem() {
+		exit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ev) {
+				System.exit(0);
+			}
+		});
 		fileMenu.add(exit);
 	}
 
@@ -50,8 +61,9 @@ public class Ribbon extends JMenuBar {
 	}
 
 	public void addTabsToTheTabMenu(JTabbedPane tabPane) {
-		if (tabPane.getTabCount()>0) tabMenu.setEnabled(true);
-		for (int i = 0; i<tabPane.getTabCount(); i++) {
+		if (tabPane.getTabCount() > 0)
+			tabMenu.setEnabled(true);
+		for (int i = 0; i < tabPane.getTabCount(); i++) {
 			String title = tabPane.getTitleAt(i);
 			tabMenu.add(new JCheckBoxMenuItem(title));
 		}
