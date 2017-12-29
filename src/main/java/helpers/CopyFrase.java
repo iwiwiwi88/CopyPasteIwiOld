@@ -1,4 +1,4 @@
-package model;
+package helpers;
 
 public class CopyFrase {
 	private String name;

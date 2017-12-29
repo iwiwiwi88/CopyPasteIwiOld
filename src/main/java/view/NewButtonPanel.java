@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import javax.swing.JPanel;
 
 public class NewButtonPanel extends JPanel {
@@ -9,5 +10,6 @@ public class NewButtonPanel extends JPanel {
 
 	public NewButtonPanel() {
 		this.setBackground(Color.orange);
+		this.setLayout(new FlowLayout());
 	}
 }

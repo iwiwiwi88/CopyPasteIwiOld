@@ -5,7 +5,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import model.CopyFrase;
+import helpers.CopyFrase;
 
 public class CopyButton extends JButton {
 
