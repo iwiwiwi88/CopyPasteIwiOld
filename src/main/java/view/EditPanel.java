@@ -1,8 +1,7 @@
 package view;
 
-import java.awt.Color;
 import java.awt.FlowLayout;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class EditPanel extends JPanel {
 
@@ -10,6 +9,5 @@ public class EditPanel extends JPanel {
 
 	public EditPanel() {
 		this.setLayout(new FlowLayout());
-		this.setBackground(Color.blue);
 	}
 }

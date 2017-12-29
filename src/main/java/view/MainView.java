@@ -16,9 +16,18 @@ public class MainView extends JFrame {
 	public MainView() throws HeadlessException {
 		this.setTitle("CopyPasteIwi");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(600, 600);
+		setSize();
 		addMenuBar();
 		addGrid();
+	}
+
+	private void setSize() {
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Rectangle winSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
+        int taskBarHeight = screenSize.height - winSize.height;
+		int windowWidth = 500;
+		this.setSize(windowWidth, screenSize.height-taskBarHeight);
+        this.setLocation(screenSize.width-windowWidth, 0);
 	}
 
 	private void addMenuBar() {
