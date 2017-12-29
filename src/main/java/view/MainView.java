@@ -47,6 +47,10 @@ public class MainView extends JFrame {
 		tabsPanel.addCopyListener(listener);
 	}
 
+	public void addAddButtonListener(ActionListener listener) {
+		newButtonPanel.addAddButtonListener(listener);
+	}
+	
 	public void showErrorMsg(String errorMsg) {
 		JOptionPane.showMessageDialog(this, errorMsg);
 	}

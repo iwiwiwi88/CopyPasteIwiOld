@@ -12,12 +12,22 @@ public class MainController {
 		this.view = view;
 		
 		this.view.addCopyListener((ActionListener) new CopyListener());
+		this.view.addCopyListener((ActionListener) new AddButtonListener());
 	}
 
 	
 	class CopyListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
+			// TODO copy listener - add implementations
+		}
+
+	}
+	
+	class AddButtonListener implements ActionListener {
+
+		public void actionPerformed(ActionEvent event) {
+			// TODO Add new Button - add implementation
 		}
 
 	}
