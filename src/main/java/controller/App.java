@@ -8,7 +8,6 @@ public class App {
 		MainModel model = new MainModel();
 		MainView view = new MainView();
 		MainController controller = new MainController(view, model);
-
 		view.setVisible(true);
 	}
 }

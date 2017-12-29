@@ -14,7 +14,7 @@ public class MainController {
 		this.view = view;
 		this.model = model;
 		
-		this.view.addActionListener((ActionListener) new CopyListener());
+		this.view.addCopyListener((ActionListener) new CopyListener());
 	}
 
 	

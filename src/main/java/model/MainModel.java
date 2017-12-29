@@ -7,10 +7,6 @@ public class MainModel {
 
 	private List<SectionTab> tabs = new LinkedList<SectionTab>();
 	
-	public MainModel() {
-		
-	}
-	
 	public void addTab(SectionTab tab) {
 		tabs.add(tab);
 	}

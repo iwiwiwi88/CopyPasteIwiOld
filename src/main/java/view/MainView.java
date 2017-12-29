@@ -30,8 +30,8 @@ public class MainView extends JFrame {
 		return test.getText();
 	}
 	
-	public void addActionListener(ActionListener listener) {
-		button.addActionListener(listener);
+	public void addCopyListener(ActionListener listener) {
+		button.addCopyListener(listener);
 	}
 
 	public void showErrorMsg(String errorMsg) {

@@ -3,6 +3,7 @@ package view;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import model.CopyFrase;
 
@@ -14,6 +15,10 @@ public class CopyButton extends JButton {
 	public CopyButton(CopyFrase copyFrase) {
 		this.copyFrase = copyFrase;
 		this.setText(copyFrase.getName());
+	}
+	
+	public void addCopyListener(ActionListener listener) {
+		this.addActionListener(listener);
 	}
 	
 	public void copyToClipboard() {
