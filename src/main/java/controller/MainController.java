@@ -8,12 +8,16 @@ import view.MainView;
 public class MainController {
 
 	private MainView view;
+	private CopyListener copyListener;
+	private AddNewButtonListener addNewButtonListener;
 	
 	public MainController(MainView view) {
 		this.view = view;
+		copyListener = new CopyListener();
+		addNewButtonListener = new AddNewButtonListener();
 		
-		this.view.addCopyListener((ActionListener) new CopyListener());
-		this.view.addCopyListener((ActionListener) new AddNewButtonListener());
+		this.view.addCopyListener(copyListener);
+		this.view.addAddNewButtonListener(addNewButtonListener);
 	}
 
 	

@@ -1,0 +1,23 @@
+<?xml version = "1.0"?>
+<TabsPanel>
+	<TabElement tabName="Tab 1">
+		<CopyButton>
+			<CopyFrase name="Iwi">Iwiwiwi was here!</CopyFrase>
+		</CopyButton>
+		<CopyButton>
+			<CopyFrase name="Iwi 3 lines">Iwi
+Iwiwi
+Iwiwiwi</CopyFrase>
+		</CopyButton>
+	</TabElement>
+	<TabElement tabName="Tab 2">
+		<CopyButton>
+			<CopyFrase name="Iwi">Iwiwiwi2 was here!</CopyFrase>
+		</CopyButton>
+		<CopyButton>
+			<CopyFrase name="Iwi 3 lines">Iwi2
+Iwiwi2
+Iwiwiwi2</CopyFrase>
+		</CopyButton>
+	</TabElement>
+</TabsPanel>

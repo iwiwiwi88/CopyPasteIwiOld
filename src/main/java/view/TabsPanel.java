@@ -13,7 +13,6 @@ public class TabsPanel extends JTabbedPane {
 	
 	public TabsPanel() {
 		this.add("Tab 1", new TabElement());
-		this.add("Tab 2", new TabElement());
 	}
 	
 	public void addCopyListener(ActionListener listener) {
