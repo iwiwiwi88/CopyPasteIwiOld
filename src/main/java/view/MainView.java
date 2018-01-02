@@ -79,7 +79,7 @@ public class MainView extends JFrame {
 	}
 
 	public void addSaveFileListener(ActionListener listener) {
-		menu.addOpenFileMenuListener(listener);
+		menu.addSaveFileMenuListener(listener);
 	}
 
 }

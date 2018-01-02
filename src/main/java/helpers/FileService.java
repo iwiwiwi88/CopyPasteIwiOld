@@ -12,7 +12,6 @@ public class FileService {
 	}
 
 	public static void saveCurrentState(MainView view) {
-		System.out.println("In saving part");
 		FileDialog fDialog = new FileDialog(view, "Save", FileDialog.SAVE);
         fDialog.setVisible(true);
         String path = fDialog.getDirectory() + fDialog.getFile();

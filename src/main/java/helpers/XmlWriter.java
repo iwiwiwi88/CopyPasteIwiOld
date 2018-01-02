@@ -15,9 +15,8 @@ public class XmlWriter {
 
 	public static void writeToXmlFile(TabsPanel tabs, String fileName) {
 		try {
-			Element tabsPanel = new Element("TabsPanel");
+			Element tabsPanel = new Element("tabsPanel");
 			Document doc = new Document(tabsPanel);
-			doc.setRootElement(tabsPanel);
 			addTabElements(tabs, doc);
 
 			XMLOutputter xmlOutput = new XMLOutputter();
@@ -30,7 +29,7 @@ public class XmlWriter {
 
 	private static void addTabElements(TabsPanel tabs, Document doc) {
 		for (TabElement tabElement : tabs.getTabs()) {
-			Element tab = new Element("TabElement");
+			Element tab = new Element("tabElement");
 			tab.setAttribute(new Attribute("tabName", tabElement.getName()));
 			addButtons(tabElement, tab);
 			doc.getRootElement().addContent(tab);

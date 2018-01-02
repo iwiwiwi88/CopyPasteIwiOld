@@ -19,6 +19,7 @@ public class MainController {
 		copyListener = new CopyListener();
 		addNewButtonListener = new AddNewButtonListener();
 		openFileListener = new OpenFileListener();
+		saveFileListener = new SaveFileListener();
 		
 		this.view.addCopyListener(copyListener);
 		this.view.addAddNewButtonListener(addNewButtonListener);

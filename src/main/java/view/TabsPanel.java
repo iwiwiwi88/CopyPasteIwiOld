@@ -30,6 +30,4 @@ public class TabsPanel extends JTabbedPane {
 		return tabs;
 	}
 
-	
-
 }
