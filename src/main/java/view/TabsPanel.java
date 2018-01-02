@@ -21,6 +21,13 @@ public class TabsPanel extends JTabbedPane {
 			tab.addCopyListener(listener);
 		}
 	}
+	
+	public void addButtonToTheTab(CopyButton button, ActionListener listener) {
+		TabElement selectedTab = (TabElement) this.getSelectedComponent();
+		selectedTab.addButton(button);
+		button.addActionListener(listener);
+		this.repaint();
+	}
 
 	public List<TabElement> getTabs() {
 		List<TabElement> tabs = new LinkedList<TabElement>();
@@ -29,5 +36,6 @@ public class TabsPanel extends JTabbedPane {
 		}
 		return tabs;
 	}
+
 
 }

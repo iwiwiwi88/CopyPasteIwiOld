@@ -47,6 +47,14 @@ public class NewButtonPanel extends JPanel {
 		addClearActionListener();
 		this.add(clearButton);
 	}
+	
+	public JTextField getNewButtonName() {
+		return newButtonName;
+	}
+
+	public JTextArea getNewButtonFrase() {
+		return newButtonFrase;
+	}
 
 	public void addAddNewButtonListener(ActionListener listener) {
 		addButton.addActionListener(listener);

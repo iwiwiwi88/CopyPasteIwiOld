@@ -17,10 +17,10 @@ public class TabElement extends JPanel {
 		this.setLayout(new GridLayout(3,3));
 		this.add(new CopyButton("Iwi", "Iwiwiwi was here!"));
 		this.add(new CopyButton("Iwi2", "Iwiwiwi2 was here!"));
-		this.add(new CopyButton("Iwi", "Iwiwiwi was here!"));
-		this.add(new CopyButton("Iwi2", "Iwiwiwi2 was here!"));
-		this.add(new CopyButton("Iwi", "Iwiwiwi was here!"));
-		this.add(new CopyButton("Iwi2", "Iwiwiwi2 was here!"));
+	}
+	
+	public void addButton(CopyButton button) {
+		this.add(button);
 	}
 	
 	public List<CopyButton> getButtons() {

@@ -61,6 +61,10 @@ public class MainView extends JFrame {
 	public EditPanel getEditPanel() {
 		return editPanel;
 	}
+	
+	public NewButtonPanel getNewButtonPanel() {
+		return newButtonPanel;
+	}
 
 	public void addCopyListener(ActionListener listener) {
 		tabsPanel.addCopyListener(listener);

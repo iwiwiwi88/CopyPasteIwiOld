@@ -13,21 +13,21 @@ public class MainController {
 	private AddNewButtonListener addNewButtonListener;
 	private OpenFileListener openFileListener;
 	private SaveFileListener saveFileListener;
-	
+
 	public MainController(MainView view) {
 		this.view = view;
 		copyListener = new CopyListener();
 		addNewButtonListener = new AddNewButtonListener();
 		openFileListener = new OpenFileListener();
 		saveFileListener = new SaveFileListener();
-		
+
 		this.view.addCopyListener(copyListener);
 		this.view.addAddNewButtonListener(addNewButtonListener);
 		this.view.addOpenFileListener(openFileListener);
 		this.view.addSaveFileListener(saveFileListener);
 	}
 
-	
+
 	class CopyListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
@@ -39,23 +39,28 @@ public class MainController {
 				view.showErrorMsg(e.getMessage());
 			}
 		}
-
 	}
-	
+
+
 	class AddNewButtonListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
-			// TODO Add new Button - add implementation
+			CopyButton button = new CopyButton(
+					view.getNewButtonPanel().getNewButtonName().getText(),
+					view.getNewButtonPanel().getNewButtonFrase().getText());
+			view.getTabsPanel().addButtonToTheTab(button, copyListener);
 		}
 
 	}
-	
+
+
 	class OpenFileListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			FileService.openFile();
 		}
 	}
-	
+
+
 	class SaveFileListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			FileService.saveCurrentState(view);
