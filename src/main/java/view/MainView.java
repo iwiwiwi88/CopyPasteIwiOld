@@ -1,6 +1,12 @@
 package view;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GraphicsEnvironment;
+import java.awt.HeadlessException;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -37,10 +43,10 @@ public class MainView extends JFrame {
 
 	private void addGrid() {
 		Container container = this.getContentPane();
-		container.setLayout(new GridLayout(3,1));
-		container.add(newButtonPanel);
+		container.setLayout(new BorderLayout());
+		container.add(newButtonPanel, BorderLayout.NORTH);
 		container.add(tabsPanel);
-		container.add(editPanel);
+		container.add(editPanel, BorderLayout.SOUTH);
 	}
 	
 	public void addCopyListener(ActionListener listener) {

@@ -1,9 +1,15 @@
 package view;
 
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class NewButtonPanel extends JPanel {
 
@@ -18,6 +24,7 @@ public class NewButtonPanel extends JPanel {
 		addNameField();
 		addButtons();
 		addTextArea();
+		this.setPreferredSize(new Dimension(450, 150));
 	}
 
 	private void addNameField() {
