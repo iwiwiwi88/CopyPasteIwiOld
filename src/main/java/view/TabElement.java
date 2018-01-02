@@ -15,8 +15,6 @@ public class TabElement extends JPanel {
 	public TabElement(String name) {
 		this.setName(name);
 		this.setLayout(new GridLayout(3,3));
-		this.add(new CopyButton("Iwi", "Iwiwiwi was here!"));
-		this.add(new CopyButton("Iwi2", "Iwiwiwi2 was here!"));
 	}
 	
 	public void addButton(CopyButton button) {
