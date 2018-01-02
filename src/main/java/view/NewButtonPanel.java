@@ -21,10 +21,10 @@ public class NewButtonPanel extends JPanel {
 
 	public NewButtonPanel() {
 		this.setLayout(new FlowLayout());
+		this.setPreferredSize(new Dimension(450, 150));
 		addNameField();
 		addButtons();
 		addTextArea();
-		this.setPreferredSize(new Dimension(450, 150));
 	}
 
 	private void addNameField() {
