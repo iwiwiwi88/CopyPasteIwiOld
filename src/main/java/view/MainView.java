@@ -49,12 +49,16 @@ public class MainView extends JFrame {
 		container.add(editPanel, BorderLayout.SOUTH);
 	}
 	
+	public EditPanel getEditPanel() {
+		return editPanel;
+	}
+
 	public void addCopyListener(ActionListener listener) {
 		tabsPanel.addCopyListener(listener);
 	}
 
-	public void addAddButtonListener(ActionListener listener) {
-		newButtonPanel.addAddButtonListener(listener);
+	public void addAddNewButtonListener(ActionListener listener) {
+		newButtonPanel.addAddNewButtonListener(listener);
 	}
 	
 	public void showErrorMsg(String errorMsg) {

@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import view.CopyButton;
 import view.MainView;
 
 public class MainController {
@@ -12,19 +13,25 @@ public class MainController {
 		this.view = view;
 		
 		this.view.addCopyListener((ActionListener) new CopyListener());
-		this.view.addCopyListener((ActionListener) new AddButtonListener());
+		this.view.addCopyListener((ActionListener) new AddNewButtonListener());
 	}
 
 	
 	class CopyListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
-			// TODO copy listener - add implementations
+			try {
+				CopyButton cb = (CopyButton) event.getSource();
+				cb.copyToClipboard();
+				view.getEditPanel().setFrase(cb.getCopyFrase().getFrase());
+			} catch (Exception e) {
+				view.showErrorMsg(e.getMessage());
+			}
 		}
 
 	}
 	
-	class AddButtonListener implements ActionListener {
+	class AddNewButtonListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
 			// TODO Add new Button - add implementation

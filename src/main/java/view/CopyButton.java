@@ -20,12 +20,15 @@ public class CopyButton extends JButton {
 	public void addCopyListener(ActionListener listener) {
 		this.addActionListener(listener);
 	}
+
+	public CopyFrase getCopyFrase() {
+		return copyFrase;
+	}
 	
 	public void copyToClipboard() {
 		StringSelection selection = new StringSelection(copyFrase.getFrase());
 	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 	    clipboard.setContents(selection, selection);
-	    // TODO Add text to quick edit section
 	}
 
 }

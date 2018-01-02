@@ -48,7 +48,7 @@ public class NewButtonPanel extends JPanel {
 		this.add(clearButton);
 	}
 
-	public void addAddButtonListener(ActionListener listener) {
+	public void addAddNewButtonListener(ActionListener listener) {
 		addButton.addActionListener(listener);
 	}
 

@@ -39,6 +39,10 @@ public class EditPanel extends JPanel {
 		this.add(clearButton);
 	}
 
+	public void setFrase(String frase) {
+		this.frase.setText(frase);
+	}
+
 	public void addCopyButtonListener() {
 		copyButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
