@@ -12,7 +12,8 @@ public class TabsPanel extends JTabbedPane {
 	private static final long serialVersionUID = 6L;
 	
 	public TabsPanel() {
-		this.add("Tab 1", new TabElement());
+		TabElement tab1 = new TabElement("Tab 1");
+		this.add(tab1.getName(), tab1);
 	}
 	
 	public void addCopyListener(ActionListener listener) {

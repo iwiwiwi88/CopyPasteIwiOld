@@ -14,7 +14,6 @@ public class Ribbon extends JMenuBar {
 	JMenu fileMenu = new JMenu("File");
 	JMenuItem open = new JMenuItem("Open");
 	JMenuItem save = new JMenuItem("Save");
-	JMenuItem saveAs = new JMenuItem("Save as...");
 	JMenuItem exit = new JMenuItem("Exit");
 	JMenu toolsMenu = new JMenu("Tools");
 	JMenuItem settings = new JMenuItem("Settings");
@@ -31,11 +30,18 @@ public class Ribbon extends JMenuBar {
 		addHelpMenu();
 	}
 
+	public void addOpenFileMenuListener(ActionListener listener) {
+		open.addActionListener(listener);
+		}
+
+	public void addSaveFileMenuListener(ActionListener listener) {
+		save.addActionListener(listener);
+	}
+
 	private void addFileMenu() {
 		this.add(fileMenu);
 		fileMenu.add(open);
 		fileMenu.add(save);
-		fileMenu.add(saveAs);
 		fileMenu.addSeparator();
 		addExitMenuItem();
 	}

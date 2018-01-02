@@ -6,18 +6,16 @@
 		</CopyButton>
 		<CopyButton>
 			<CopyFrase name="Iwi 3 lines">Iwi
-Iwiwi
-Iwiwiwi</CopyFrase>
+				Iwiwi
+				Iwiwiwi
+			</CopyFrase>
 		</CopyButton>
 	</TabElement>
 	<TabElement tabName="Tab 2">
-		<CopyButton>
-			<CopyFrase name="Iwi">Iwiwiwi2 was here!</CopyFrase>
-		</CopyButton>
-		<CopyButton>
-			<CopyFrase name="Iwi 3 lines">Iwi2
-Iwiwi2
-Iwiwiwi2</CopyFrase>
-		</CopyButton>
+		<CopyFrase name="Iwi">Iwiwiwi2 was here!</CopyFrase>
+		<CopyFrase name="Iwi 3 lines">Iwi2
+			Iwiwi2
+			Iwiwiwi2
+		</CopyFrase>
 	</TabElement>
 </TabsPanel>

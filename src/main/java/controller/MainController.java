@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import helpers.FileService;
 import view.CopyButton;
 import view.MainView;
 
@@ -10,14 +11,19 @@ public class MainController {
 	private MainView view;
 	private CopyListener copyListener;
 	private AddNewButtonListener addNewButtonListener;
+	private OpenFileListener openFileListener;
+	private SaveFileListener saveFileListener;
 	
 	public MainController(MainView view) {
 		this.view = view;
 		copyListener = new CopyListener();
 		addNewButtonListener = new AddNewButtonListener();
+		openFileListener = new OpenFileListener();
 		
 		this.view.addCopyListener(copyListener);
 		this.view.addAddNewButtonListener(addNewButtonListener);
+		this.view.addOpenFileListener(openFileListener);
+		this.view.addSaveFileListener(saveFileListener);
 	}
 
 	
@@ -25,9 +31,9 @@ public class MainController {
 
 		public void actionPerformed(ActionEvent event) {
 			try {
-				CopyButton cb = (CopyButton) event.getSource();
-				cb.copyToClipboard();
-				view.getEditPanel().setFrase(cb.getCopyFrase().getFrase());
+				CopyButton copyButton = (CopyButton) event.getSource();
+				copyButton.copyToClipboard();
+				view.getEditPanel().setFrase(copyButton.getFrase());
 			} catch (Exception e) {
 				view.showErrorMsg(e.getMessage());
 			}
@@ -41,5 +47,17 @@ public class MainController {
 			// TODO Add new Button - add implementation
 		}
 
+	}
+	
+	class OpenFileListener implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+			FileService.openFile();
+		}
+	}
+	
+	class SaveFileListener implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+			FileService.saveCurrentState(view);
+		}
 	}
 }

@@ -18,7 +18,7 @@ public class MainView extends JFrame {
 	NewButtonPanel newButtonPanel = new NewButtonPanel();
 	TabsPanel tabsPanel = new TabsPanel();
 	EditPanel editPanel = new EditPanel();
-	
+
 	public MainView() throws HeadlessException {
 		this.setTitle("CopyPasteIwi");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,11 +29,12 @@ public class MainView extends JFrame {
 
 	private void setSize() {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        Rectangle winSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
-        int taskBarHeight = screenSize.height - winSize.height;
+		Rectangle winSize = GraphicsEnvironment.getLocalGraphicsEnvironment()
+				.getMaximumWindowBounds();
+		int taskBarHeight = screenSize.height - winSize.height;
 		int windowWidth = 500;
-		this.setSize(windowWidth, screenSize.height-taskBarHeight);
-        this.setLocation(screenSize.width-windowWidth, 0);
+		this.setSize(windowWidth, screenSize.height - taskBarHeight);
+		this.setLocation(screenSize.width - windowWidth, 0);
 	}
 
 	private void addMenuBar() {
@@ -48,7 +49,15 @@ public class MainView extends JFrame {
 		container.add(tabsPanel);
 		container.add(editPanel, BorderLayout.SOUTH);
 	}
-	
+
+	public Ribbon getMenu() {
+		return menu;
+	}
+
+	public TabsPanel getTabsPanel() {
+		return tabsPanel;
+	}
+
 	public EditPanel getEditPanel() {
 		return editPanel;
 	}
@@ -60,9 +69,17 @@ public class MainView extends JFrame {
 	public void addAddNewButtonListener(ActionListener listener) {
 		newButtonPanel.addAddNewButtonListener(listener);
 	}
-	
+
 	public void showErrorMsg(String errorMsg) {
 		JOptionPane.showMessageDialog(this, errorMsg);
+	}
+
+	public void addOpenFileListener(ActionListener listener) {
+		menu.addOpenFileMenuListener(listener);
+	}
+
+	public void addSaveFileListener(ActionListener listener) {
+		menu.addOpenFileMenuListener(listener);
 	}
 
 }
