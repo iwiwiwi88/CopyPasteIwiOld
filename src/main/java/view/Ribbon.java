@@ -1,7 +1,9 @@
 package view;
 
+import java.awt.ComponentOrientation;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -21,6 +23,9 @@ public class Ribbon extends JMenuBar {
 	JMenuItem about = new JMenuItem("About");
 	JMenuItem help = new JMenuItem("Help");
 	JMenu tabMenu = new JMenu("Tabs");
+	JMenuItem pinIcon = new JMenuItem("", new ImageIcon ("images/pin.png"));
+	JMenuItem unpinIcon = new JMenuItem("", new ImageIcon ("images/unpin.png"));
+	JMenuItem icon;
 
 	public Ribbon() {
 		addFileMenu();
@@ -28,6 +33,7 @@ public class Ribbon extends JMenuBar {
 		this.add(tabMenu);
 		addToolsMenu();
 		addHelpMenu();
+		addPin(true);
 	}
 
 	public void addOpenFileMenuListener(ActionListener listener) {
@@ -36,6 +42,10 @@ public class Ribbon extends JMenuBar {
 
 	public void addSaveFileMenuListener(ActionListener listener) {
 		save.addActionListener(listener);
+	}
+	
+	public void addPinWindowListener(ActionListener listener) {
+		icon.addActionListener(listener);
 	}
 
 	private void addFileMenu() {
@@ -73,6 +83,21 @@ public class Ribbon extends JMenuBar {
 			String title = tabPane.getTitleAt(i);
 			tabMenu.add(new JCheckBoxMenuItem(title));
 		}
+	}
+
+	public void addPin(boolean isPinned) {
+		setPin(isPinned);
+		icon.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+		this.add(icon);
+	}
+	
+	public void setPin(boolean isPinned) {
+		if (isPinned) {
+			icon = pinIcon;
+		} else {
+			icon = unpinIcon;
+		}
+		this.repaint();
 	}
 
 }

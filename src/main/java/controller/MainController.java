@@ -13,18 +13,28 @@ public class MainController {
 	private AddNewButtonListener addNewButtonListener;
 	private OpenFileListener openFileListener;
 	private SaveFileListener saveFileListener;
+	private PinWindowListener pinWindowListener;
 
 	public MainController(MainView view) {
 		this.view = view;
+		createListeners();
+		addListeners();
+	}
+
+	private void createListeners() {
 		copyListener = new CopyListener();
 		addNewButtonListener = new AddNewButtonListener();
 		openFileListener = new OpenFileListener();
 		saveFileListener = new SaveFileListener();
+		pinWindowListener = new PinWindowListener();
+	}
 
+	private void addListeners() {
 		this.view.addCopyListener(copyListener);
 		this.view.addAddNewButtonListener(addNewButtonListener);
 		this.view.addOpenFileListener(openFileListener);
 		this.view.addSaveFileListener(saveFileListener);
+		this.view.addPinWindowListener(pinWindowListener);
 	}
 
 
@@ -64,6 +74,13 @@ public class MainController {
 	class SaveFileListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			FileService.saveCurrentState(view);
+		}
+	}
+
+
+	class PinWindowListener implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+			view.pinWindow();
 		}
 	}
 }

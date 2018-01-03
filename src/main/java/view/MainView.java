@@ -22,9 +22,19 @@ public class MainView extends JFrame {
 	public MainView() throws HeadlessException {
 		this.setTitle("CopyPasteIwi");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		pinWindow(true);
 		setSize();
 		addMenuBar();
 		addGrid();
+	}
+
+	public void pinWindow(boolean pinned) {
+		this.setAlwaysOnTop(pinned);
+		menu.setPin(pinned);
+	}
+	
+	public void pinWindow() {
+		pinWindow(!this.isAlwaysOnTop());
 	}
 
 	private void setSize() {
@@ -84,6 +94,10 @@ public class MainView extends JFrame {
 
 	public void addSaveFileListener(ActionListener listener) {
 		menu.addSaveFileMenuListener(listener);
+	}
+	
+	public void addPinWindowListener(ActionListener listener) {
+		menu.addPinWindowListener(listener);
 	}
 
 }
