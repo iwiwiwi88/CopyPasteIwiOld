@@ -23,8 +23,8 @@ public class Ribbon extends JMenuBar {
 	JMenuItem about = new JMenuItem("About");
 	JMenuItem help = new JMenuItem("Help");
 	JMenu tabMenu = new JMenu("Tabs");
-	JMenuItem pinIcon = new JMenuItem("", new ImageIcon ("images/pin.png"));
-	JMenuItem unpinIcon = new JMenuItem("", new ImageIcon ("images/unpin.png"));
+	JMenuItem pinIcon = new JMenuItem("", new ImageIcon("images/pin.png"));
+	JMenuItem unpinIcon = new JMenuItem("", new ImageIcon("images/unpin.png"));
 	JMenuItem icon;
 
 	public Ribbon() {
@@ -38,12 +38,12 @@ public class Ribbon extends JMenuBar {
 
 	public void addOpenFileMenuListener(ActionListener listener) {
 		open.addActionListener(listener);
-		}
+	}
 
 	public void addSaveFileMenuListener(ActionListener listener) {
 		save.addActionListener(listener);
 	}
-	
+
 	public void addPinWindowListener(ActionListener listener) {
 		icon.addActionListener(listener);
 	}
@@ -90,14 +90,13 @@ public class Ribbon extends JMenuBar {
 		icon.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 		this.add(icon);
 	}
-	
+
 	public void setPin(boolean isPinned) {
 		if (isPinned) {
 			icon = pinIcon;
 		} else {
 			icon = unpinIcon;
 		}
-		this.repaint();
 	}
 
 }

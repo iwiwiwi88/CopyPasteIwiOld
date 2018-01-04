@@ -8,6 +8,7 @@ import java.awt.HeadlessException;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -16,12 +17,14 @@ public class MainView extends JFrame {
 	private static final long serialVersionUID = 2L;
 	Ribbon menu = new Ribbon();
 	NewButtonPanel newButtonPanel = new NewButtonPanel();
+	ImageIcon icon = new ImageIcon("images/iwi_icon.png");
 	TabsPanel tabsPanel = new TabsPanel();
 	EditPanel editPanel = new EditPanel();
 
 	public MainView() throws HeadlessException {
 		this.setTitle("CopyPasteIwi");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setIconImage(icon.getImage());
 		pinWindow(true);
 		setSize();
 		addMenuBar();
@@ -32,7 +35,7 @@ public class MainView extends JFrame {
 		this.setAlwaysOnTop(pinned);
 		menu.setPin(pinned);
 	}
-	
+
 	public void pinWindow() {
 		pinWindow(!this.isAlwaysOnTop());
 	}
@@ -71,7 +74,7 @@ public class MainView extends JFrame {
 	public EditPanel getEditPanel() {
 		return editPanel;
 	}
-	
+
 	public NewButtonPanel getNewButtonPanel() {
 		return newButtonPanel;
 	}
@@ -95,7 +98,7 @@ public class MainView extends JFrame {
 	public void addSaveFileListener(ActionListener listener) {
 		menu.addSaveFileMenuListener(listener);
 	}
-	
+
 	public void addPinWindowListener(ActionListener listener) {
 		menu.addPinWindowListener(listener);
 	}
