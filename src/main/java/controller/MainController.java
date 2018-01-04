@@ -9,6 +9,7 @@ import view.MainView;
 public class MainController {
 
 	private MainView view;
+	private FileService fileService = new FileService();
 	private CopyListener copyListener;
 	private AddNewButtonListener addNewButtonListener;
 	private OpenFileListener openFileListener;
@@ -66,7 +67,7 @@ public class MainController {
 
 	class OpenFileListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			RepaintController.repaintTabs(view, FileService.openFileAndGetTabsList(view));
+			RepaintController.repaintTabs(view, fileService.openFileAndGetTabsList(view));
 			view.addCopyListener(copyListener);
 		}
 	}
@@ -74,7 +75,7 @@ public class MainController {
 
 	class SaveFileListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			FileService.saveCurrentState(view);
+			fileService.saveCurrentState(view);
 		}
 	}
 
