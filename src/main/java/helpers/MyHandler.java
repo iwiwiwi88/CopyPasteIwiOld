@@ -18,7 +18,7 @@ public class MyHandler extends DefaultHandler {
 	public List<TabElement> getTabs() {
 		return tabs;
 	}
-	
+
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException {
 
@@ -27,7 +27,7 @@ public class MyHandler extends DefaultHandler {
 			tabElement = new TabElement(tabName);
 			bTab = true;
 		} else if (qName.equalsIgnoreCase("button")) {
-			copyButton = new CopyButton(attributes.getValue("name"),"");
+			copyButton = new CopyButton(attributes.getValue("name"), "");
 			bButton = true;
 		}
 
@@ -39,6 +39,7 @@ public class MyHandler extends DefaultHandler {
 		if (qName.equalsIgnoreCase("tabelement")) {
 			tabs.add(tabElement);
 		} else if (qName.equalsIgnoreCase("button")) {
+			bButton = false;
 			tabElement.add(copyButton);
 		}
 
@@ -48,8 +49,8 @@ public class MyHandler extends DefaultHandler {
 			throws SAXException {
 
 		if (bButton) {
-			copyButton.setFrase(new String(ch, start, length));
-			bButton = false;
+			copyButton.setFrase(
+					copyButton.getFrase() + new String(ch, start, length));
 		}
 	}
 }
