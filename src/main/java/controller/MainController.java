@@ -29,7 +29,7 @@ public class MainController {
 		pinWindowListener = new PinWindowListener();
 	}
 
-	private void addListeners() {
+	public void addListeners() {
 		this.view.addCopyListener(copyListener);
 		this.view.addAddNewButtonListener(addNewButtonListener);
 		this.view.addOpenFileListener(openFileListener);
@@ -66,7 +66,8 @@ public class MainController {
 
 	class OpenFileListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			FileService.openFile(view);
+			RepaintController.repaintTabs(view, FileService.openFileAndGetTabsList(view));
+			view.addCopyListener(copyListener);
 		}
 	}
 

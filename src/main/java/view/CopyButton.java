@@ -15,7 +15,7 @@ public class CopyButton extends JButton {
 		this.frase = frase;
 		this.setText(name);
 	}
-	
+
 	public void addCopyListener(ActionListener listener) {
 		this.addActionListener(listener);
 	}
@@ -23,11 +23,15 @@ public class CopyButton extends JButton {
 	public String getFrase() {
 		return frase;
 	}
-	
+
+	public void setFrase(String frase) {
+		this.frase = frase;
+	}
+
 	public void copyToClipboard() {
 		StringSelection selection = new StringSelection(frase);
-	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-	    clipboard.setContents(selection, selection);
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipboard.setContents(selection, selection);
 	}
 
 }

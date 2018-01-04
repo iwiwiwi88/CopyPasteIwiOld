@@ -1,26 +1,26 @@
 package helpers;
 
+import java.util.List;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
-import org.xml.sax.helpers.DefaultHandler;
-import view.TabsPanel;
+import view.TabElement;
 
 public class XmlReader {
-	public static void readTabsFromFile(TabsPanel tabs, String fileName) {
+	public static List<TabElement> readTabsFromFile(String fileName) {
+		MyHandler handler = new MyHandler();
 		try {
-			System.out.println("filename: "+fileName);
 			SAXParserFactory sfactory = SAXParserFactory.newInstance();
 			SAXParser parser = sfactory.newSAXParser();
+
 			XMLReader xmlparser = parser.getXMLReader();
-			xmlparser.setContentHandler(new DefaultHandler());
+			xmlparser.setContentHandler(handler);
 			xmlparser.parse(new InputSource(fileName));
-			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
+		return handler.getTabs();
 	}
 
 }

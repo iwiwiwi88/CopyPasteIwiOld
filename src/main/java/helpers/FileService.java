@@ -1,13 +1,17 @@
 package helpers;
 
+import java.util.LinkedList;
+import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import view.MainView;
+import view.TabElement;
 
 public class FileService {
 
-	public static void openFile(MainView view) {
+	public static List<TabElement> openFileAndGetTabsList(MainView view) {
 		JFileChooser openDialog = new JFileChooser();
+		List<TabElement> tabs = new LinkedList<TabElement>();
 		openDialog.setDialogType(JFileChooser.OPEN_DIALOG);
 		openDialog
 				.setFileFilter(new FileNameExtensionFilter("xml file", "xml"));
@@ -16,8 +20,9 @@ public class FileService {
 		if (openDialog.showSaveDialog(view) == JFileChooser.APPROVE_OPTION) {
 			String fileName = openDialog.getSelectedFile().toString();
 			fileName = addXmlIfNeeded(fileName);
-			XmlReader.readTabsFromFile(view.getTabsPanel(), fileName);
+			tabs = XmlReader.readTabsFromFile(fileName);
 		}
+		return tabs;
 	}
 
 	public static void saveCurrentState(MainView view) {
