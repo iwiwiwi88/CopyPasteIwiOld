@@ -21,13 +21,15 @@ public class FileService {
 		openDialog
 				.setFileFilter(new FileNameExtensionFilter("xml file", "xml"));
 		openDialog.setVisible(true);
-
-		if (openDialog.showSaveDialog(view) == JFileChooser.APPROVE_OPTION) {
+		int option = openDialog.showOpenDialog(view);
+		if (option == JFileChooser.APPROVE_OPTION) {
 			prefs.put(LAST_USED_FOLDER,
 					openDialog.getSelectedFile().getParent());
 			String fileName = openDialog.getSelectedFile().toString();
 			fileName = addXmlIfNeeded(fileName);
 			tabs = XmlReader.readTabsFromFile(fileName);
+		} else if (option == JFileChooser.CANCEL_OPTION) {
+			tabs = view.getTabsPanel().getTabs();
 		}
 		return tabs;
 	}

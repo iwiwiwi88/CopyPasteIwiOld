@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import helpers.FileService;
 import view.CopyButton;
 import view.MainView;
@@ -56,10 +57,18 @@ public class MainController {
 	class AddNewButtonListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent event) {
-			CopyButton button = new CopyButton(
-					view.getNewButtonPanel().getNewButtonName().getText(),
-					view.getNewButtonPanel().getNewButtonFrase().getText());
-			view.getTabsPanel().addButtonToTheTab(button, copyListener);
+			String name = view.getNewButtonPanel().getNewButtonName().getText();
+			String frase = view.getNewButtonPanel().getNewButtonFrase()
+					.getText();
+			if (!name.equals("") & !frase.equals("")) {
+				CopyButton button = new CopyButton(name, frase);
+				view.getTabsPanel().addButtonToTheTab(button, copyListener);
+			} else {
+				JOptionPane.showMessageDialog(view,
+						"Both fields ('New Button's Text' and 'Text To Be Copied') should contain text!",
+						"Add A New Button - Warning",
+						JOptionPane.WARNING_MESSAGE);
+			}
 		}
 
 	}
@@ -67,7 +76,8 @@ public class MainController {
 
 	class OpenFileListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			RepaintController.repaintTabs(view, fileService.openFileAndGetTabsList(view));
+			RepaintController.repaintTabs(view,
+					fileService.openFileAndGetTabsList(view));
 			view.addCopyListener(copyListener);
 		}
 	}
