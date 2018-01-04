@@ -66,7 +66,7 @@ public class MainController {
 
 	class OpenFileListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			FileService.openFile();
+			FileService.openFile(view);
 		}
 	}
 
