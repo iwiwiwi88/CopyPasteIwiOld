@@ -13,7 +13,7 @@ public class RepaintController {
 
 	private static void addTabs(TabsPanel panel, List<TabElement> tabs) {
 		for (TabElement tab : tabs) {
-			panel.add(tab.getName(), tab);
+			panel.addTab(tab);
 		}
 	}
 }

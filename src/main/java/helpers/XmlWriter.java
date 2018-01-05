@@ -29,10 +29,13 @@ public class XmlWriter {
 
 	private static void addTabElements(TabsPanel tabs, Document doc) {
 		for (TabElement tabElement : tabs.getTabs()) {
-			Element tab = new Element("tabElement");
-			tab.setAttribute(new Attribute("tabName", tabElement.getName()));
-			addButtons(tabElement, tab);
-			doc.getRootElement().addContent(tab);
+			if (!tabElement.getName().equals("+")) {
+				Element tab = new Element("tabElement");
+				tab.setAttribute(
+						new Attribute("tabName", tabElement.getName()));
+				addButtons(tabElement, tab);
+				doc.getRootElement().addContent(tab);
+			}
 		}
 	}
 
