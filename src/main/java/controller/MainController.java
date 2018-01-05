@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 import helpers.FileService;
 import view.CopyButton;
 import view.MainView;
+import view.TabElement;
 
 public class MainController {
 
@@ -60,14 +61,19 @@ public class MainController {
 			String name = view.getNewButtonPanel().getNewButtonName().getText();
 			String frase = view.getNewButtonPanel().getNewButtonFrase()
 					.getText();
-			if (!name.equals("") & !frase.equals("")) {
-				CopyButton button = new CopyButton(name, frase);
-				view.getTabsPanel().addButtonToTheTab(button, copyListener);
-			} else {
+			if (name.equals("") | frase.equals("")) {
 				JOptionPane.showMessageDialog(view,
 						"Both fields ('New Button's Text' and 'Text To Be Copied') should contain text!",
 						"Add A New Button - Warning",
 						JOptionPane.WARNING_MESSAGE);
+			} else if (((TabElement) view.getTabsPanel().getSelectedComponent())
+					.getButtons().size() == 30) {
+				JOptionPane.showMessageDialog(view,
+						"You can add only 30 buttons on one tab!",
+						"30 tabs - Warning", JOptionPane.WARNING_MESSAGE);
+			} else {
+				CopyButton button = new CopyButton(name, frase);
+				view.getTabsPanel().addButtonToTheTab(button, copyListener);
 			}
 		}
 

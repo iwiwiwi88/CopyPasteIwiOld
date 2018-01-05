@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Component;
+import java.awt.ComponentOrientation;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -14,7 +15,8 @@ public class TabElement extends JPanel {
 	
 	public TabElement(String name) {
 		this.setName(name);
-		this.setLayout(new GridLayout(3,3,20,20));
+		this.setLayout(new GridLayout(10,3,20,20));
+		this.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 	}
 	
 	public void addButton(CopyButton button) {
