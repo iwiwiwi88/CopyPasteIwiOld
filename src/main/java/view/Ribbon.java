@@ -18,8 +18,8 @@ public class Ribbon extends JMenuBar {
 	JMenuItem about = new JMenuItem("About");
 	JMenuItem help = new JMenuItem("Help");
 	JMenu tabMenu = new JMenu("Tabs");
-	ImageIcon pinIcon = new ImageIcon("images/pin.png");
-	ImageIcon unpinIcon = new ImageIcon("images/unpin.png");
+	ImageIcon pinIcon = new ImageIcon("src/main/resources/images/pin.png");
+	ImageIcon unpinIcon = new ImageIcon("src/main/resources/images/unpin.png");
 	JMenuItem iconItem = new JMenuItem();
 
 	public Ribbon() {

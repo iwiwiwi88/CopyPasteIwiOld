@@ -17,7 +17,7 @@ public class MainView extends JFrame {
 	private static final long serialVersionUID = 2L;
 	Ribbon menu = new Ribbon();
 	NewButtonPanel newButtonPanel = new NewButtonPanel();
-	ImageIcon icon = new ImageIcon("images/iwi_icon.png");
+	ImageIcon icon = new ImageIcon("src/main/resources/images/iwi_icon.png");
 	TabsPanel tabsPanel = new TabsPanel();
 	EditPanel editPanel = new EditPanel();
 
